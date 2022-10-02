@@ -1,0 +1,12 @@
+[project]
+name = "pychargecloud"
+version = "0.0.1"
+dependencies = [
+    "aiohttp",
+    "yarl",
+    "pydantic",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
