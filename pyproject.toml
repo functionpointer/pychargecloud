@@ -10,7 +10,7 @@ authors = [
     { name="functionpointer", email="suspendfunction@gmail.com" }
 ]
 readme = "README.md"
-license = {file = "LICENSE.md"}
+license = GPL version 3
 description = "Access public ev charger information via chargecloud.de"
 requires-python = ">=3.10"
 classifiers = [
