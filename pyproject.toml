@@ -11,9 +11,14 @@ authors = [
 ]
 description = "Access public ev charger information via chargecloud.de"
 requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3.10"
+]
 
 [project.urls]
-"Homepage" = "https://github.com/functionpointer/pychargecloud"
+homepage = "https://github.com/functionpointer/pychargecloud"
+readme = "README.md"
+license = {file = "LICENSE.md"}
 
 [build-system]
 requires = ["setuptools"]
