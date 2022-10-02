@@ -1,20 +1,21 @@
 [project]
 name = "pychargecloud"
-version = "0.0.2"
+version = "0.0.3"
 dependencies = [
     "aiohttp",
     "yarl",
     "pydantic",
 ]
-authors = [
-    { name="functionpointer", email="suspendfunction@gmail.com" }
-]
 readme = "README.md"
-license = GPL version 3
+license = {text = "GNU General Public License v3 or later (GPLv3+)"}
 description = "Access public ev charger information via chargecloud.de"
 requires-python = ">=3.10"
 classifiers = [
-    "Programming Language :: Python :: 3.10"
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+]
+authors = [
+    { name = "functionpointer", email = "suspendfunction@gmail.com" },
 ]
 
 [project.urls]

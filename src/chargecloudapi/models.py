@@ -1,9 +1,10 @@
-from pydantic import BaseModel, confloat, Field
+from pydantic import BaseModel, confloat, Field, constr
 from typing import Literal
 
 
 DateTimeISO8601 = str
 Status = Literal["AVAILABLE", "CHARGING", "UNKNOWN"]
+EvseId = constr(regex=r"^([A-Z]+)\*([A-Z0-9]+)\*([A-Z0-9]*)(?:\*([A-Z0-9]+))?$")
 
 
 class Coordinates(BaseModel):
@@ -25,7 +26,7 @@ class Connector(BaseModel):
 
 class Evse(BaseModel):
     uid: str
-    id: str
+    id: EvseId
     status: Status
     reservable: bool
     capabilities: list[str]
@@ -33,7 +34,9 @@ class Evse(BaseModel):
     floor_level: str | None
     vehicle_type: str
     charge_point_position: str = Field(..., alias="chargePointPosition")
-    charge_point_public_comment: str | None = Field(..., alias="chargePointPublicComment")
+    charge_point_public_comment: str | None = Field(
+        ..., alias="chargePointPublicComment"
+    )
     charge_point_parking_space_numbers: str | None = Field(
         ..., alias="chargePointParkingSpaceNumbers"
     )
