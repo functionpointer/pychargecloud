@@ -15,7 +15,7 @@ class Coordinates(BaseModel):
 class Connector(BaseModel):
     id: int
     status: Status
-    standard: Literal["IEC_62196_T2", "IEC_62196_T2_COMBO", "DOMESTIC_F"]
+    standard: Literal["IEC_62196_T2", "IEC_62196_T2_COMBO", "DOMESTIC_F", "CHADEMO", "TESLA"]
     format: Literal["CABLE", "SOCKET"]
     power_type: Literal["AC_1_PHASE", "AC_3_PHASE", "DC"]
     ampere: float

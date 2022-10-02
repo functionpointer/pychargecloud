@@ -19,6 +19,7 @@ async def main():
                     "DE*ERE*E0008*OMN15L",
                     "DE*UFC*E210004",
                     "DE*ION*E207101",
+                    "DE*EDR*E11000150*2",
                     ]
 
         for evse_id in evse_ids:

@@ -10,10 +10,10 @@ DEFAULT_URL = "https://app.chargecloud.de/emobility:ocpi/6336fe713f2eb7fa04b97ff
 class Api:
     """Class to make authenticated requests."""
 
-    def __init__(self, websession: ClientSession, base_url: str = DEFAULT_URL):
+    def __init__(self, websession: ClientSession, base_url: str | None = None):
         """Initialize the auth."""
         self.websession = websession
-        self.base_url = URL(base_url)
+        self.base_url = URL(base_url or DEFAULT_URL)
         self.logger = logging.getLogger("chargecloudapi")
 
     async def location_by_evse_id(self, evse_id: str, **kwargs) -> list[Location]:
