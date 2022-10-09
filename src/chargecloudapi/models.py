@@ -3,7 +3,7 @@ from typing import Literal
 
 
 DateTimeISO8601 = str
-Status = Literal["AVAILABLE", "CHARGING", "UNKNOWN"]
+Status = Literal["AVAILABLE", "CHARGING", "OUTOFORDER", "UNKNOWN"]
 EvseId = constr(regex=r"^([A-Z]+)\*([A-Z0-9]+)\*([A-Z0-9]*)(?:\*([A-Z0-9]+))?$")
 
 
