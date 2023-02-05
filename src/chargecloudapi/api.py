@@ -1,10 +1,11 @@
+import aiohttp.client_exceptions
 import pydantic
 from aiohttp import ClientSession, ClientResponse
 from yarl import URL
 from .models import *
 import logging
 
-DEFAULT_URL = "https://app.chargecloud.de/emobility:ocpi/6336fe713f2eb7fa04b97ff6651b76f8/app/2.0/locations"
+DEFAULT_URL = "https://app.chargecloud.de/emobility:ocpi/606a0da0dfdd338ee4134605653d4fd8/app/2.0/locations"
 
 
 class Api:

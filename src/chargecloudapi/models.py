@@ -33,7 +33,7 @@ class Evse(BaseModel):
     physical_reference: str | None
     floor_level: str | None
     vehicle_type: str
-    charge_point_position: str = Field(..., alias="chargePointPosition")
+    charge_point_position: str | None = Field(..., alias="chargePointPosition")
     charge_point_public_comment: str | None = Field(
         ..., alias="chargePointPublicComment"
     )
