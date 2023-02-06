@@ -1,17 +1,13 @@
 import sys
 
 import chargecloudapi
+from chargecloudapi.api import operatorIDs
 import aiohttp
 import asyncio
 import logging
 
 
 async def main():
-    operator_IDs = {
-        "maingau": "606a0da0dfdd338ee4134605653d4fd8",
-        "SW Kiel": "6336fe713f2eb7fa04b97ff6651b76f8",
-        "Rheinenergie": "c4ce9bb82a86766833df8a4818fa1b5c",
-    }
     evse_ids = [
         "DE*REK*E100241*002",
         "DE*REK*E100196*001",
@@ -21,18 +17,20 @@ async def main():
         "DE*UFC*E210004",
         "DE*ION*E207101",
         "DE*EDR*E11000150*2",
+        "DESWME052601",
+        "DE*SWM*E052601",
+        "DE*TNK*E00136*02",
     ]
     results: dict[str, dict[str, list[chargecloudapi.Location]]] = {
         evse_id: {} for evse_id in evse_ids
     }
-    for operator_name, operator_id in operator_IDs.items():
+    for operator_id in operatorIDs:
         async with aiohttp.ClientSession() as session:
-            base_url = f"https://app.chargecloud.de/emobility:ocpi/{operator_id}/app/2.0/locations"
-            api = chargecloudapi.Api(session, base_url=base_url)
+            api = chargecloudapi.Api(session)
 
             for evse_id in evse_ids:
-                locations = await api.location_by_evse_id(evse_id)
-                results[evse_id][operator_name] = locations
+                locations = await api.location_by_evse_id(evse_id, operator_id)
+                results[evse_id][operator_id.name] = locations
 
     for evse_id, res in results.items():
         print(f"evse_id {evse_id}:")

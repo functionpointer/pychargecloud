@@ -15,7 +15,9 @@ class Coordinates(BaseModel):
 class Connector(BaseModel):
     id: int
     status: Status
-    standard: Literal["IEC_62196_T2", "IEC_62196_T2_COMBO", "DOMESTIC_F", "CHADEMO", "TESLA"]
+    standard: Literal[
+        "IEC_62196_T2", "IEC_62196_T2_COMBO", "DOMESTIC_F", "CHADEMO", "TESLA"
+    ]
     format: Literal["CABLE", "SOCKET"]
     power_type: Literal["AC_1_PHASE", "AC_3_PHASE", "DC"]
     ampere: float
@@ -79,3 +81,14 @@ class Response(BaseModel):
     status_code: str
     status_message: str
     timestamp: DateTimeISO8601
+
+
+class OperatorID(BaseModel):
+    name: str
+    op_id: str
+
+
+class SmartCallData(BaseModel):
+    evse_id: str
+    last_call: DateTimeISO8601
+    operator_id: OperatorID | None
