@@ -1,10 +1,20 @@
+import pydantic
 from pydantic import BaseModel, confloat, Field, constr
 from typing import Literal
 
 
 DateTimeISO8601 = str
 Status = Literal["AVAILABLE", "CHARGING", "OUTOFORDER", "INOPERATIVE", "UNKNOWN"]
-EvseId = constr(regex=r"^([A-Z]+)\*([A-Z0-9]+)\*([A-Z0-9]*)(?:\*([A-Z0-9]+))?$")
+
+# regex from https://github.com/hubject/oicp/blob/master/OICP-2.3/OICP%202.3%20EMP/03_EMP_Data_Types.asciidoc#EvseIDType
+if pydantic.version.VERSION.startswith("1"):
+    EvseId = constr(
+        regex=r"^(([A-Z]{2}\*?[A-Z0-9]{3}\*?E[A-Z0-9\*]{1,30})|(\+?[0-9]{1,3}\*[0-9]{3}\*[0-9\*]{1,32}))$"
+    )
+else:
+    EvseId = constr(
+        pattern=r"^(([A-Z]{2}\*?[A-Z0-9]{3}\*?E[A-Z0-9\*]{1,30})|(\+?[0-9]{1,3}\*[0-9]{3}\*[0-9\*]{1,32}))$"
+    )
 
 
 class Coordinates(BaseModel):
@@ -50,7 +60,7 @@ class Evse(BaseModel):
 class Operator(BaseModel):
     operator_id: str = Field(..., alias="operatorId")
     name: str
-    hotline: str
+    hotline: str | None
 
 
 class OpeningTimes(BaseModel):
@@ -78,7 +88,7 @@ class Location(BaseModel):
 
 class Response(BaseModel):
     data: list[Location]
-    status_code: str
+    status_code: int
     status_message: str
     timestamp: DateTimeISO8601
 

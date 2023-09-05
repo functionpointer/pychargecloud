@@ -9,6 +9,10 @@ import logging
 
 async def main():
     evse_ids = [
+        "NLTNMEGLEFAC*HV*033*2",
+        "NLLMSE11718226*1",
+        "NLNUOEALF*0010734*1",
+        "NLNUOEALF*0005738*1",
         "DE*REK*E100241*002",
         "DE*REK*E100196*001",
         "DE*REK*E10032*002",
