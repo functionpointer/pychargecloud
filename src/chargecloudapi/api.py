@@ -56,9 +56,9 @@ class Api:
                 ret = await self.location_by_evse_id(evse_id=evse_id, operator_id=opid)
                 if len(ret) != 0:
                     call_data.operator_id = opid
-                    self.logger.info(f"found operator {opid.name}")
+                    self.logger.info(f"{evse_id}: found operator {opid.name}")
                     break
-        if ret is None:
+        if ret is None or len(ret)==0:
             return None, call_data
         else:
             return ret[0], call_data
