@@ -10,6 +10,7 @@ operatorIDs = [
     OperatorID(name="maingau", op_id="606a0da0dfdd338ee4134605653d4fd8"),
     OperatorID(name="SW Kiel", op_id="6336fe713f2eb7fa04b97ff6651b76f8"),
     OperatorID(name="Rheinenergie", op_id="c4ce9bb82a86766833df8a4818fa1b5c"),
+    OperatorID(name="Chargemaker", op_id="830de8931b1d8dff36808d2173a57735"),
 ]
 
 
