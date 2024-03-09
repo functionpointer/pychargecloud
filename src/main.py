@@ -25,7 +25,8 @@ async def main():
         "DE*SWM*E052601",
         "DE*TNK*E00136*02",
         "DE*CM1*E2100081*AC001",
-        "DE*CM1*E1100192*AC001"
+        "DE*CM1*E1100192*AC001",
+        "DEQRMEHHH8M11",
     ]
     results: dict[str, dict[str, list[chargecloudapi.Location]]] = {
         evse_id: {} for evse_id in evse_ids
@@ -41,6 +42,8 @@ async def main():
     for evse_id, res in results.items():
         print(f"evse_id {evse_id}:")
         for operator_name, locations in res.items():
+            if len(locations) == 0:
+                continue
             print(f"{operator_name:12s}-> {locations}")
 
 
