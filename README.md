@@ -3,6 +3,8 @@ pychargecloud
 
 Fetches data about public ev charge points from chargecloud.de
 
+Used by [Home Assistant Chargecloud Integration](https://github.com/functionpointer/home-assistant-chargecloud-integration)
+
 Example:
 ```python
 import sys
