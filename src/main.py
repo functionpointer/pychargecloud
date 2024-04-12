@@ -27,6 +27,8 @@ async def main():
         "DE*CM1*E2100081*AC001",
         "DE*CM1*E1100192*AC001",
         "DEQRMEHHH8M11",
+        "CH*CKW*EDP1000*113",
+        "CH*CKW*EDP1000*114",
     ]
     results: dict[str, dict[str, list[chargecloudapi.Location]]] = {
         evse_id: {} for evse_id in evse_ids

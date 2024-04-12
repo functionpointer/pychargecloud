@@ -13,6 +13,7 @@ operatorIDs = [
     OperatorID(name="Chargemaker", op_id="830de8931b1d8dff36808d2173a57735"),
     OperatorID(name="TNK", op_id="d018c2c8d1c8f63be6923a6282eec650"),
     OperatorID(name="Mainova", op_id="8eeab3ffd13953fdd566f88c6eba7d41"),
+    OperatorID(name="CKW", op_id="745c4880d9f6def3cf402f90704cd11b"),
 ]
 
 
