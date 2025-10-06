@@ -29,3 +29,11 @@ if __name__ == "__main__":
 ```
 
 See also src/main.py
+
+
+Dev notes
+=========
+
+To make a new release, use GitHub website and draft a release manually.
+Make sure the version number in pyproject.toml matches the new tag.
+GitHub Actions will publish it to pypi.
