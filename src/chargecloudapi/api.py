@@ -14,6 +14,7 @@ operatorIDs = [
     OperatorID(name="TNK", op_id="d018c2c8d1c8f63be6923a6282eec650"),
     OperatorID(name="Mainova", op_id="8eeab3ffd13953fdd566f88c6eba7d41"),
     OperatorID(name="CKW", op_id="745c4880d9f6def3cf402f90704cd11b"),
+    OperatorID(name="WienEnergie", op_id="16551d48ed6c048085c5e8bccd34b0c7"),
 ]
 
 
